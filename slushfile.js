@@ -30,7 +30,7 @@ gulp.task('default', function(done) {
 
     var tplFiles = function(file) {
         var basename = path.basename(file.path);
-        return (basename === 'project.js') || (basename === 'livefile.js');
+        return (basename === 'project.js') || (basename === 'livefile.js') || (basename === 'gulpfile.js');
     };
 
     inquirer.prompt([{
@@ -68,7 +68,7 @@ gulp.task('default', function(done) {
             answers.cdn = answers.cdn || answers.webServer;
             answers.subModule = answers.subModule || '';
 
-            // fix url 
+            // fix url
             answers.cdn = fixUrl(answers.cdn);
             answers.webServer = fixUrl(answers.webServer);
             answers.subModule = fixUrl(answers.subModule, false, true);

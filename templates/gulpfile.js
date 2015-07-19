@@ -11,7 +11,7 @@
 // 0.4.2 2014-10-2 add jsrefs debug support
 // 0.4.1 2014-09-30 add cmd line publish support
 // 0.3.17 2014-09-30 add retina sprite support
-// 0.3.16 2014-09-29 remove requirement of build:htmlrefs comment 
+// 0.3.16 2014-09-29 remove requirement of build:htmlrefs comment
 // 0.3.0 2014-07-17 adapt to slush generator
 // 0.2.0 2014-07-15 support htmlrefs rev alloykit-offline
 // 0.1.0 2014-07-15 init
@@ -51,9 +51,9 @@ var compass = require('gulp-compass'),
 // =================
 var configs = {
     // about site global
-    name: 'alloyteam-simple-default',
-    cdn: 'http://s.url.cn/qqun/',
-    webServer: 'http://find.qq.com/',
+    name: '<%= name %>',
+    cdn: '<%= cdn %>',
+    webServer: '<%= webServer %>',
     subModule: '/',
 
     // path 相关
@@ -107,7 +107,7 @@ var configs = {
     zipConf: [],
     // zip 名称
     zipName: 'offline.zip',
-    // 离线包黑名单 
+    // 离线包黑名单
     zipBlacklist: [],
     // jb cli 发布相关,发布单号，用于命令行发布
     distId: '',
@@ -302,14 +302,14 @@ gulp.task('copy', function() {
 // copy and rev some images files [filename-md5.png style]
 var image2copy = '{img/,img/common/}' + configs.imgType;
 gulp.task('img-rev', function() {
-    // img root 
+    // img root
     return gulp.src(image2copy, opt)
         .pipe(newer(dist))
         .pipe(rev())
         .pipe(gulp.dest(dist));
 });
 
-// compile scss and auto spriting 
+// compile scss and auto spriting
 var scss2compile = '**/*.scss';
 gulp.task('compass', function() {
     return gulp.src(scss2compile, opt)
