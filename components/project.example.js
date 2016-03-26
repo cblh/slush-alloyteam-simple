@@ -2,9 +2,9 @@ module.exports = {
     // 站点相关，项目名
     name: 'alloyteam-simple-app',
     // 项目 cdn 根，对应 alloydist 发布系统的 public/cdn/
-    cdn: 'http://s.url.cn/qqfind/',
+    cdn: '//s.url.cn/qqfind/',
     // 项目 html 根，对应 alloydist 发布系统的 public/webserver/
-    webServer: 'http://find.qq.com/',
+    webServer: '//find.qq.com/',
     // 子模块名称
     subMoudle: '/',
     // webpack: js 模块化相关

@@ -40,11 +40,11 @@ gulp.task('default', function(done) {
         }, {
             type: 'input',
             name: 'webServer',
-            message: '项目html路径，如: http://find.qq.com/qqun/search/ -> '
+            message: '项目html路径，如: //find.qq.com/qqun/search/ -> '
         }, {
             type: 'input',
             name: 'cdn',
-            message: '项目cdn路径，如: http://s.url.cn/qqun/qqfind/search/ -> '
+            message: '项目cdn路径，如: //s.url.cn/qqun/qqfind/search/ -> '
         }, {
             type: 'input',
             name: 'subModule',
@@ -68,7 +68,7 @@ gulp.task('default', function(done) {
             answers.cdn = answers.cdn || answers.webServer;
             answers.subModule = answers.subModule || '';
 
-            // fix url 
+            // fix url
             answers.cdn = fixUrl(answers.cdn);
             answers.webServer = fixUrl(answers.webServer);
             answers.subModule = fixUrl(answers.subModule, false, true);

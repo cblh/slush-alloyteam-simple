@@ -1,7 +1,7 @@
 slush-alloyteam-simple
 ==========================
 
-Alloyteam Simple Web Apps generator base on slush & glup 
+Alloyteam Simple Web Apps generator base on slush & glup
 
 Alloyteam web 前端项目工程化模板
 
@@ -46,15 +46,15 @@ slush alloyteam-simple
 * 按照提示填写项目初始化信息
 ```shell
 项目名称，如：alloyteam-webapp
-项目html路径，如：http://find.qq.com/qqun/search/
-项目cdn路径，如：http://s.url.cn/qqun/qqfind/search/
+项目html路径，如：//find.qq.com/qqun/search/
+项目cdn路径，如：//s.url.cn/qqun/qqfind/search/
 子项目(可留空)，如：qiqi_1111
 ```
 * [可选] 确定 jb.oa.com 是否有对应部署映射，多个子项目的映射可以公用，如各种运营活动，activity/qiqi_1111
 ```shell
 项目路径 与 jb 映射对应关系
-http://find.qq.com/qqun/search/  <=> /data/sites/find.qq.com/qqun/search/ 
-http://s.url.cn/qqun/qqfind/search/  <=> /data/sites/cdn.qplus.com/qqun/search/
+//find.qq.com/qqun/search/  <=> /data/sites/find.qq.com/qqun/search/
+//s.url.cn/qqun/qqfind/search/  <=> /data/sites/cdn.qplus.com/qqun/search/
 ```
 * 安装构建依赖
 ```shell
@@ -133,7 +133,7 @@ slush alloyteam-simple:page mypage
 将会生成如下目录和文件
 ```
 ./src
-├── mypage.html 
+├── mypage.html
 ├── css
 │   ├── mypage
 │   │   └── _index.scss
@@ -332,13 +332,13 @@ var dom = listTpl(data);
 * 在 js 中引用 src/img/common 下图片
 ```
 var banner = require('../../img/common/banner.png');
-// will change to: "http://s.url.cn/qqun/img/common/banner-be70f3b1.png"
+// will change to: "//s.url.cn/qqun/img/common/banner-be70f3b1.png"
 ```
 
 * 在 js 中引用 src/img/static 下图片
 ```
 var staticImg = require('../../img/static/static-img-url.png');
-// will change to: "http://s.url.cn/qqun/img/static/static-img-url.png"
+// will change to: "//s.url.cn/qqun/img/static/static-img-url.png"
 ```
 
 * 在 js 中引用第三方库，如 jQuery
@@ -366,7 +366,7 @@ entry: {
     mypage: './src/js/mypage/index.js'
 },
 ```
-在 common/index.js 中暴露一个全局变量 window.commons 
+在 common/index.js 中暴露一个全局变量 window.commons
 ```
 // src/js/common/index.js
 window.commons = {
@@ -399,7 +399,7 @@ require(['./submod1.js', './submod2.js'], function(submod1, submod2) {
 ```
 
 ### 关于 handlebar 模板文件
-* 语法参考: http://handlebarsjs.com/  
+* 语法参考: http://handlebarsjs.com/
 * https://github.com/altano/handlebars-loader
 
 ### 关于 html 文件
@@ -410,7 +410,7 @@ require(['./submod1.js', './submod2.js'], function(submod1, submod2) {
 ```
 将被替换为 cdn+md5 文件格式，如
 ```
-<link rel="stylesheet" href="http://s.url.cn/qqfind/css/index-2e3a4b5c.css">
+<link rel="stylesheet" href="//s.url.cn/qqfind/css/index-2e3a4b5c.css">
 ```
 * 引用 js 文件
 ```
@@ -418,7 +418,7 @@ require(['./submod1.js', './submod2.js'], function(submod1, submod2) {
 ```
 将被替换为 cdn+md5 文件格式，如
 ```
-<script src="http://s.url.cn/qqfind/js/index-2e3a4b5c.js"></script>
+<script src="//s.url.cn/qqfind/js/index-2e3a4b5c.js"></script>
 ```
 * gulp-htmlrefs 默认会自动扫描 link/scirpt/img 三种标签并自动替换
 * 需要额外替换 video/source/data-main/meta/a/input 等标签，需要插入额外标签
@@ -446,13 +446,13 @@ require(['./submod1.js', './submod2.js'], function(submod1, submod2) {
 ##### 使用 liveproxy 进行本地替换开发
 * 将浏览器代理或者系统代理配置为 127.0.0.1:8090 (端口可在 livefile.js 修改)
 * 将 localhost;127.0.0.1 配置不使用代理
-* 在浏览器中打开业务页面，如 http://find.qq.com/index.html
+* 在浏览器中打开业务页面，如 //find.qq.com/index.html
 * 编辑 src 下代码，直接浏览器查看最新页面
 * 编辑 livefile.js 里面 mocker 配置，进行cgi本地模拟
 
 ##### 使用 liveproxy 进行移动端远程调试
-* 将手机网络代理设置为 127.0.0.1:8090 
-* 在 pc 浏览器中打开调试控制台页面 http://localhost:8091  (端口可在 livefile.js 修改)
+* 将手机网络代理设置为 127.0.0.1:8090
+* 在 pc 浏览器中打开调试控制台页面 //localhost:8091  (端口可在 livefile.js 修改)
 * 在手机浏览器或者webview中打开页面
 * 手机页面日志将自动输出 pc 端控制台中
 
